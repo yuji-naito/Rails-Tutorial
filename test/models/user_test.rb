@@ -75,6 +75,6 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "authenticated? should return false for a user with nil digest" do
-    assert_not @user.authenticated?('') # remember_tokenを参照する前のnew()でエラーになるため、引数は何でも良い
+    assert_not @user.authenticated?(:remember, '') # remember_tokenを参照する前のnew()でエラーになるため、引数は何でも良い
   end
 end

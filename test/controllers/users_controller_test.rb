@@ -22,7 +22,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
     assert_select 'div#error_explanation'
     assert_select 'div.field_with_errors'
-    assert_select 'form[action="/signup"]'
+    assert_select 'form[action="/users"]'
   end
   
   test "should redirect edit when not logged in" do

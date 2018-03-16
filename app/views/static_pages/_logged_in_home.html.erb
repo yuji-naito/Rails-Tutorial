@@ -1,4 +1,5 @@
 <div class="row">
+  <!-- Left side -->
   <aside class="col-md-4">
     <section class="user_info">
       <%= render 'shared/user_info' %>
@@ -9,7 +10,30 @@
     <section class="micropost_form">
       <%= render 'shared/micropost_form' %>
     </section>
+    <!-- Allow notification btn -->
+    <section>
+      <% unless current_user.followed_notification %>
+        <!-- In not allow -->
+        <%= form_for(current_user,
+                    url: {action: 'allow', controller: 'users'},
+                    html: { method: :post },
+                    remote: true) do |f| %>
+          <div><%= hidden_field_tag :id, current_user.id %></div>
+          <%= f.submit "Notification allow", class: "btn btn-primary" %>
+        <% end %>
+      <% else %>
+        <!-- In allow -->
+        <%= form_for(current_user,
+                    url: { action: 'notallow', controller: 'users' },
+                    html: { method: :post },
+                    remote: true) do |f| %>
+          <div><%= hidden_field_tag :id, current_user.id %></div>
+          <%= f.submit "Notification not allow", class: "btn" %>
+        <% end %>
+      <% end %>
+    </section>
   </aside>
+  <!-- Right side -->
   <div class="col-md-8">
     <h3>Micropost Feed</h3>
     <%= render 'shared/feed' %>

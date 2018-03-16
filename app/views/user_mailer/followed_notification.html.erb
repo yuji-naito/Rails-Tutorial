@@ -1,0 +1,13 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You were followed from "<%= @follower.name %>" !</h1>
+    <%= link_to user_url(@follower) do %>
+      Click this for confirming the profile of "<%= @follower.name %>" !
+    <% end %>
+  </body>
+</html>

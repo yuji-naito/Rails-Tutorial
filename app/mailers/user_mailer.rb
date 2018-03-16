@@ -19,4 +19,11 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "Password reset"
   end
+  
+  # The notification is notified to the user when the user was followed.
+  def followed_notification(user, follower)
+    @user = user
+    @follower = follower
+    mail to: user.email, subject: "You ware followed!!"
+  end
 end

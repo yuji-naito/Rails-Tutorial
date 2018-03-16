@@ -63,6 +63,22 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+  # 通知を許可するアクション
+  def allow
+    @user = User.find(params[:id])
+    if @user.update_attributes(followed_notification: true)
+      redirect_to root_url
+    end
+  end
+  
+  # 通知を拒否するアクション
+  def notallow
+    @user = User.find(params[:id])
+    if @user.update_attributes(followed_notification: false)
+      redirect_to root_url
+    end
+  end
+  
   private
   
     def user_params

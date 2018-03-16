@@ -16,4 +16,11 @@ class UserMailerPreview < ActionMailer::Preview
     user.reset_token = User.new_token
     UserMailer.password_reset(user)
   end
+  
+  def followed_notification
+    user = User.first
+    other_user = User.second
+    
+    UserMailer.followed_notification(user, other_user)
+  end
 end

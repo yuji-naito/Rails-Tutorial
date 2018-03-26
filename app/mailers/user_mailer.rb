@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def account_activation(user)
     @user = user
-    mail to: user.email, subject: "Account activation"
+    mail to: user.email, subject: "アカウント有効化"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -17,13 +17,13 @@ class UserMailer < ApplicationMailer
   #
   def password_reset(user)
     @user = user
-    mail to: user.email, subject: "Password reset"
+    mail to: user.email, subject: "パスワードリセット"
   end
   
   # The notification is notified to the user when the user was followed.
   def followed_notification(user, follower)
     @user = user
     @follower = follower
-    mail to: user.email, subject: "You ware followed!!"
+    mail to: user.email, subject: "フォローされました！"
   end
 end

@@ -13,10 +13,10 @@
       <% end %>
       <%= yield %>
       <!-- meat zone -->
-      <%= link_to image_tag("MyMeat.png", alt: "I'm groumet logo", class: "meat meat1"), root_path %>
-      <%= link_to image_tag("MyMeat.png", alt: "I'm groumet logo", class: "meat meat2"), root_path %>
-      <%= link_to image_tag("MyMeat.png", alt: "I'm groumet logo", class: "meat meat3"), root_path %>
-      <%= link_to image_tag("MyMeat.png", alt: "I'm groumet logo", class: "meat meat4"), root_path %>
+      <%= link_to image_tag(random_image, alt: "I'm groumet logo", class: "meat meat1"), root_path %>
+      <%= link_to image_tag(random_image, alt: "I'm groumet logo", class: "meat meat2"), root_path %>
+      <%= link_to image_tag(random_image, alt: "I'm groumet logo", class: "meat meat3"), root_path %>
+      <%= link_to image_tag(random_image, alt: "I'm groumet logo", class: "meat meat4"), root_path %>
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>

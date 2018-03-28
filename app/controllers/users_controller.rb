@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "プロフィールを更新しました！"
       redirect_to @user
     else
       render 'edit'
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "ユーザーを削除しました！"
     redirect_to users_url
   end
   
@@ -63,18 +63,11 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
-  # 通知を許可するアクション
-  def allow
+  # 通知の有効/無効を設定するアクション
+  def update_notif
     @user = User.find(params[:id])
-    if @user.update_attributes(followed_notification: true)
-      redirect_to root_url
-    end
-  end
-  
-  # 通知を拒否するアクション
-  def notallow
-    @user = User.find(params[:id])
-    if @user.update_attributes(followed_notification: false)
+    notifFlag = !@user.followed_notification  # トグル設定
+    if @user.update_attributes(followed_notification: notifFlag)
       redirect_to root_url
     end
   end

@@ -13,7 +13,12 @@ module ApplicationHelper
   # ロゴイメージのファイル名をランダムで1つ返す
   def random_image
     # ランダムに表示するロゴのファイル名を配列で宣言
-    logo_images = ["MyMeat.png", "MyCake.png"]
+    logo_images = [
+      "MyMeat.png",
+      "MyCake.png",
+      "RealMeat.png",
+      "RealPizza.png",
+      ]
     
     # ロゴの配列からランダムで1つ文字列を代入
     logo_image = logo_images[rand(logo_images.length)]

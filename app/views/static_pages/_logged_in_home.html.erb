@@ -12,23 +12,16 @@
     </section>
     <!-- Allow notification btn -->
     <section>
-      <% unless current_user.followed_notification %>
-        <!-- In not allow -->
-        <%= form_for(current_user,
-                    url: {action: 'allow', controller: 'users'},
-                    html: { method: :post },
-                    remote: true) do |f| %>
-          <div><%= hidden_field_tag :id, current_user.id %></div>
-          <%= f.submit "Notification allow", class: "btn btn-primary" %>
-        <% end %>
-      <% else %>
-        <!-- In allow -->
-        <%= form_for(current_user,
-                    url: { action: 'notallow', controller: 'users' },
-                    html: { method: :post },
-                    remote: true) do |f| %>
-          <div><%= hidden_field_tag :id, current_user.id %></div>
-          <%= f.submit "Notification not allow", class: "btn" %>
+      <!-- In not allow -->
+      <%= form_for(current_user,
+                  url: {action: 'update_notif', controller: 'users'},
+                  html: { method: :post },
+                  remote: true) do |f| %>
+        <div><%= hidden_field_tag :id, current_user.id %></div>
+        <% unless current_user.followed_notification %>
+          <%= f.submit "通知を有効にする", class: "btn btn-primary" %>
+        <% else %>
+          <%= f.submit "通知を無効にする", class: "btn" %>
         <% end %>
       <% end %>
     </section>

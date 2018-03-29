@@ -159,7 +159,7 @@ aside {
   a {
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
+    border-left: 1px solid blue;
     color: gray;
     &:first-child {
       padding-left: 0;
@@ -240,7 +240,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid blue;
   }
 }
 

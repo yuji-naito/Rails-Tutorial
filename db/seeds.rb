@@ -1,3 +1,6 @@
+# ダミーデータを日本語にする
+Faker::Config.locale = :ja
+
 # ユーザー
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",

@@ -2,7 +2,7 @@
 Faker::Config.locale = :ja
 
 # ユーザー
-User.create!(name:  "Example User",
+User.create!(name:  "ないとう",
              email: "example@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
@@ -22,11 +22,23 @@ User.create!(name:  "Example User",
                activated_at: Time.zone.now)
 end
 
+# 店リストを取得
+file = File.open("./db/TestShopName.txt", "r")
+shops = file.read().split("\n")
+
 # マイクロポスト
 users = User.order(:created_at).take(6)
 50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
+#  content = Faker::Lorem.sentence(5)
+#  content = Faker::Dessert.variety
+#  content = Faker::realText
+  users.each do |user|
+    # 店リストの中からランダムにcontentに格納
+    content = shops[rand(shops.length)]
+    
+    # それぞれのユーザーで投稿を作成
+    user.microposts.create!(content: content)
+  end
 end
 
 # リレーションシップ

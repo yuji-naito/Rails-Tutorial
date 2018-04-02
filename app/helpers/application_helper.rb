@@ -11,6 +11,9 @@ module ApplicationHelper
   end
   
   # ロゴイメージのファイル名をランダムで1つ返す
+  # 対象の追加方法は以下
+  # (1)app/assets/imagesにイメージファイルを格納
+  # (2)(1)で格納したファイル名をlogo_imagesの配列に追記
   def random_image
     # ランダムに表示するロゴのファイル名を配列で宣言
     logo_images = [

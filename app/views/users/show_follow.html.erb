@@ -5,7 +5,10 @@
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
       <span><%= link_to "プロフィールを表示", @user %></span>
+      <!--
       <span><b>投稿:</b> <%= @user.microposts.count %></span>
+      -->
+      <span><%= pluralize(current_user.microposts.count, "goulmet") %></span>
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>

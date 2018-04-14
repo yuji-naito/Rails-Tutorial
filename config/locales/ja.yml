@@ -12,3 +12,8 @@ ja:
       micropost:
         content: 投稿内容
         picture: 絵
+  
+  # will_paginateの日本語対応
+  will_paginate:
+    previous_label: "前へ"
+    next_label: "後へ"
